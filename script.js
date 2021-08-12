@@ -23,11 +23,14 @@ let lostMessage;
 let tieMessage;
 let userScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll("button");
+buttons.forEach(btn => btn.addEventListener("click", (e) => {alert("aa")}));
 
 
-function playRound(userChoice, computerChoice) {
+/*function playRound(e) {
     //Users choice - prompt user to enter Rock, Paper or Scissors
-    userChoice = prompt("Enter Rock, Paper, or Scissors").toLowerCase();
+    userChoice = e;
+    console.log(e);
     computerChoice = computerPlay().toLowerCase();
     //Output message declarations depending on the round result
     winMessage = `You won this round! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)}!`;
@@ -51,10 +54,10 @@ function playRound(userChoice, computerChoice) {
     } else {
         return ("Something wrong! Please enter Rock, Paper or Scissors!");
     }
-}
+}*/
 
 //Play 5 rounds
-function game() {
+/*function game() {
     do {
         console.log(
         `${playRound()}
@@ -82,6 +85,6 @@ function game() {
         Computers total score is: ${computerScore}
         Reload page or press F5 to play again!`);
     } 
-}
+}*/
 
-console.log(game());
+//console.log(game());
