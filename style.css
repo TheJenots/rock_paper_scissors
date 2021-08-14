@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(15, 14, 14);
+    text-align: center;
+}
+
+h1,
+#totalResult,
+.btn-container,
+#result {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    
+    height: 15vh;
+    background-color: red;
+    
+}
+
+#totalResult {
+    flex-direction: column;
+    background-color: rgb(201, 57, 57);
+    height: 30vh;
+
+}
+
+#totalResult .btn {
+    height: 50px;
+}
+
+.btn-container {
+    background-color: rgb(0, 255, 106);
+    height: 30vh;
+}
+
+.btn {
+    
+}
+
+#result {
+    background-color: rgb(68, 0, 255);
+    height: 10vh;
+}
+
+.scores{
+    background-color: rgb(229, 255, 0);
+    display: grid;
+    grid: "div div";
+    align-content: center;
+    height: 15vh;
+}
+
+

@@ -5,21 +5,33 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="script.js" defer></script>
+        
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     </head>
     <body>
-       
-         <div id="totalResult"></div>
+        <h1>Play 5 rounds Rock-Paper-Scissors</h1>
+        <div id="totalResult">Choose your weapon!</div>
 
-        <button id="rock" class="btn">Rock</button>
-        <button id="paper" class="btn">Paper</button>
-        <button id="scissors" class="btn">Scissors</button>
+        <section class="btn-container">
+            <button id="rock" class="btn"><i class="far fa-hand-rock"></i></button>
+            <button id="paper" class="btn"><i class="far fa-hand-paper"></i></button>
+            <button id="scissors" class="btn"><i class="far fa-hand-scissors"></i></button>
+        </section>
 
         <div id="result"></div>
-       
-         <div id="user">Your score</div>
-            <p id="uScore">0</p>
-        <div id="computer">Computer score</div>
-            <p id="cScore">0</p>
+
+        <section class="scores">
+            <div id="user">
+                <h2>Your score</h2>
+                <p id="uScore">0</p>
+            </div>
+            <div id="computer">
+                <h2>Computer score</h2>
+                <p id="cScore">0</p>
+            </div>
+        </section>
+
     </body>
 </html>
