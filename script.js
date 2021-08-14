@@ -16,75 +16,67 @@ function computerPlay() {
 }
 
 //Global variable declarations
-let userChoice;
-let computerChoice;
-let winMessage;
-let lostMessage;
-let tieMessage;
 let userScore = 0;
 let computerScore = 0;
-const buttons = document.querySelectorAll("button");
-buttons.forEach(btn => btn.addEventListener("click", (e) => {alert("aa")}));
+let buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener("click", play));
 
-
-/*function playRound(e) {
-    //Users choice - prompt user to enter Rock, Paper or Scissors
-    userChoice = e;
-    console.log(e);
-    computerChoice = computerPlay().toLowerCase();
+function play(e) {
+    let uScore = document.querySelector("#uScore");
+    let cScore = document.querySelector("#cScore");
+    let totalResult = document.querySelector("#totalResult");
+    let result = document.querySelector("#result");   
+    let userChoice = this.id;
+    let computerChoice = computerPlay().toLowerCase();
     //Output message declarations depending on the round result
-    winMessage = `You won this round! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)}!`;
-    lostMessage = `You lost this round! ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)} beats ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
-    tieMessage = `It's tie! You both chose ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
+    let winMessage = `You won this round! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)}!`;
+    let lostMessage = `You lost this round! ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)} beats ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
+    let tieMessage = `It's tie! You both chose ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
     //Compare computers choice and users choice, determine winner in a round, update players and computers scores based on the round result and return suitable message
     if (userChoice === computerChoice) {
         userScore += 0.5;
         computerScore += 0.5;
-        return tieMessage;
+        result.textContent = tieMessage;
     } else if ((userChoice === "rock" && computerChoice === "scissors") ||
                (userChoice === "paper" && computerChoice === "rock") ||
                (userChoice === "scissors" && computerChoice === "paper")) {
         userScore += 1;
-        return winMessage;
+        result.textContent = winMessage;
     } else if ((userChoice === "rock" && computerChoice === "paper") ||
                (userChoice === "paper" && computerChoice === "scissors") ||
                (userChoice === "scissors" && computerChoice === "rock")) {
         computerScore += 1;
-        return lostMessage;
+        result.textContent = lostMessage;
     } else {
-        return ("Something wrong! Please enter Rock, Paper or Scissors!");
-    }
-}*/
-
-//Play 5 rounds
-/*function game() {
-    do {
-        console.log(
-        `${playRound()}
-        Your score after this round is: ${userScore}
-        Computers score after this round is: ${computerScore}`
-        );
-    } while ((userScore + computerScore) < 5);
-    //Determine winner of the whole 5 round game and inform user
-    if (userScore > computerScore) {
-        return (
-        `You won this game! 
-        Your total score is: ${userScore}
-        Computers total score is: ${computerScore}
-        Reload page or press F5 to play again!`);
-    } else if (userScore === computerScore) {
-        return (
-        `It's tie game!
-        Your total score is: ${userScore}
-        Computers total score is: ${computerScore}
-        Reload page or press F5 to play again!`);
-    } else {
-        return (
-        `You lost this game!
-        Your total score is: ${userScore}
-        Computers total score is: ${computerScore}
-        Reload page or press F5 to play again!`);
+        result.textContent = "Something wrong! Please enter Rock, Paper or Scissors!";
     } 
-}*/
 
-//console.log(game());
+    uScore.textContent = `${userScore}`;
+    cScore.textContent = `${computerScore}`;
+
+    //Determine winner of 5 rounds and inform user
+    if (userScore + computerScore === 5) {
+        if (userScore > computerScore) {
+        totalResult.textContent =`You won this game!`;
+        } else if (userScore === computerScore) {
+        totalResult.textContent =`It's tie game!`;
+        } else {
+        totalResult.textContent =`You lost this game!`;
+        } 
+        //Adds play again button
+        let playAgain = document.createElement("button");
+        playAgain.textContent = "Play again!";
+        playAgain.classList.add("btn");
+        totalResult.appendChild(playAgain);
+        //Restarts game
+        playAgain.addEventListener("click", () => {
+            userScore = 0;
+            computerScore = 0;
+            uScore.textContent = "0";
+            cScore.textContent = "0";
+            totalResult.textContent = "";
+            result.textContent = "";
+        });
+       
+    }
+}
