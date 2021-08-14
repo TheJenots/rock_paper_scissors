@@ -32,23 +32,25 @@ function play(e) {
     let winMessage = `You won this round! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)}!`;
     let lostMessage = `You lost this round! ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)} beats ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
     let tieMessage = `It's tie! You both chose ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
+    if (userScore + computerScore < 5) {
     //Compare computers choice and users choice, determine winner in a round, update players and computers scores based on the round result and return suitable message
-    if (userChoice === computerChoice) {
+      if (userChoice === computerChoice) {
         userScore += 0.5;
         computerScore += 0.5;
         result.textContent = tieMessage;
-    } else if ((userChoice === "rock" && computerChoice === "scissors") ||
+      } else if ((userChoice === "rock" && computerChoice === "scissors") ||
                (userChoice === "paper" && computerChoice === "rock") ||
                (userChoice === "scissors" && computerChoice === "paper")) {
         userScore += 1;
         result.textContent = winMessage;
-    } else if ((userChoice === "rock" && computerChoice === "paper") ||
+      } else if ((userChoice === "rock" && computerChoice === "paper") ||
                (userChoice === "paper" && computerChoice === "scissors") ||
                (userChoice === "scissors" && computerChoice === "rock")) {
         computerScore += 1;
         result.textContent = lostMessage;
+      } 
     } else {
-        result.textContent = "Something wrong! Please enter Rock, Paper or Scissors!";
+        alert("Game over! Please press play again!");
     } 
 
     uScore.textContent = `${userScore}`;
@@ -74,7 +76,7 @@ function play(e) {
             computerScore = 0;
             uScore.textContent = "0";
             cScore.textContent = "0";
-            totalResult.textContent = "";
+            totalResult.textContent = "Choose your weapon!";
             result.textContent = "";
         });
        
