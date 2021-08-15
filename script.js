@@ -32,11 +32,9 @@ function play(e) {
     let winMessage = `You won this round! ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)}!`;
     let lostMessage = `You lost this round! ${computerChoice.charAt(0).toUpperCase()}${computerChoice.slice(1)} beats ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
     let tieMessage = `It's tie! You both chose ${userChoice.charAt(0).toUpperCase()}${userChoice.slice(1)}!`;
-    if (userScore + computerScore < 5) {
+    if (userScore < 5 && computerScore < 5) {
     //Compare computers choice and users choice, determine winner in a round, update players and computers scores based on the round result and return suitable message
       if (userChoice === computerChoice) {
-        userScore += 0.5;
-        computerScore += 0.5;
         result.textContent = tieMessage;
       } else if ((userChoice === "rock" && computerChoice === "scissors") ||
                (userChoice === "paper" && computerChoice === "rock") ||
@@ -56,8 +54,8 @@ function play(e) {
     uScore.textContent = `${userScore}`;
     cScore.textContent = `${computerScore}`;
 
-    //Determine winner of 5 rounds and inform user
-    if (userScore + computerScore === 5) {
+    //Determine winner -player who first reaches 5 wins- and inform user
+    if (userScore === 5 || computerScore === 5) {
         if (userScore > computerScore) {
         totalResult.textContent =`You won this game!`;
         } else if (userScore === computerScore) {
@@ -68,7 +66,7 @@ function play(e) {
         //Adds play again button
         let playAgain = document.createElement("button");
         playAgain.textContent = "Play again!";
-        playAgain.classList.add("btn");
+        playAgain.classList.add("btnPlayAgain");
         totalResult.appendChild(playAgain);
         //Restarts game
         playAgain.addEventListener("click", () => {

@@ -1,6 +1,9 @@
 body {
-    background-color: rgb(15, 14, 14);
+    background-color:rgb(27, 27, 26);
+    color: rgb(245, 229, 212);
     text-align: center;
+    font-family: 'Joti One', cursive, sans-serif;
+    font-size: 1.3rem;
 }
 
 h1,
@@ -13,43 +16,51 @@ h1,
 }
 
 h1 {
-    
     height: 15vh;
-    background-color: red;
-    
 }
 
 #totalResult {
     flex-direction: column;
-    background-color: rgb(201, 57, 57);
     height: 30vh;
-
+    font-size: 2rem;
 }
 
-#totalResult .btn {
+
+.btnPlayAgain {
     height: 50px;
+    width: 250px;
+    background-color: orange;
+    color: rgb(51, 36, 9);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-family: 'Joti One', cursive, sans-serif;
+    font-size: inherit;
 }
 
 .btn-container {
-    background-color: rgb(0, 255, 106);
     height: 30vh;
 }
 
 .btn {
-    
+    width: 25%;
+    background-color: rgb(226, 243, 245);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: rgb(255, 136, 0);
+    font-size: 5rem;
 }
 
 #result {
-    background-color: rgb(68, 0, 255);
     height: 10vh;
 }
 
 .scores{
-    background-color: rgb(229, 255, 0);
     display: grid;
     grid: "div div";
     align-content: center;
     height: 15vh;
 }
 
-
+.scores p {
+    font-size: 2.5rem;
+}
